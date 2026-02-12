@@ -459,6 +459,17 @@ m.get_root().html.add_child(folium.Element(legend_html))
 # SAVE
 # =========================
 
+import os
+
+# Ensure docs folder exists
+output_dir = "docs"
+os.makedirs(output_dir, exist_ok=True)
+
+output_path = os.path.join(output_dir, "index.html")
+
 folium.LayerControl().add_to(m)
-m.save("site_heatmap.html")
-print("Saved: site_heatmap.html")
+m.save(output_path)
+
+print(f"Saved: {output_path}")
+
+
